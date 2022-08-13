@@ -1,19 +1,27 @@
 <template>
-	<h1>Hello</h1>
+	<NavBar />
 	<router-view />
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-
+import NavBar from "./components/common/NavBar.vue";
 export default defineComponent({
 	name: "App",
-	components: {},
+	components: {
+		NavBar,
+	},
 });
 </script>
 <style lang="scss">
-#app {
-	width: 90%;
-	margin: 0 auto;
-	font-size: 100px;
+$btn-color: #31b73a;
+body {
+	background-color: #eefefe;
+	#app {
+		width: 90%;
+		margin: 0 auto;
+	}
+	ul {
+		list-style: none;
+	}
 }
 </style>

@@ -21,10 +21,12 @@ module.exports = {
 				options: {
 					appendTsSuffixTo: [/\.vue$/],
 				},
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.vue$/,
 				loader: "vue-loader",
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.js$/,
@@ -32,12 +34,9 @@ module.exports = {
 				exclude: /node_modules/,
 			},
 			{
-				test: /\.s(c|a)ss$/,
-				use: ["vue-style-loader", "css-loader"],
-			},
-			{
-				test: /.css$/,
-				use: ["vue-style-loader", "css-loader"],
+				test: /\.(css|scss|sass)$/,
+				use: ["style-loader", "css-loader", "sass-loader"],
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.(png|jpg|svg|gif)?$/,
