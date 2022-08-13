@@ -14,5 +14,6 @@ export default defineComponent({
 <style scoped lang="scss">
 .logo-container {
 	font-size: 20px;
+	margin-left: 25px;
 }
 </style>

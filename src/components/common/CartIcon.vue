@@ -5,4 +5,9 @@
 <script setup lang="ts"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.cart-icon {
+	font-size: 20px;
+	margin-right: 25px;
+}
+</style>

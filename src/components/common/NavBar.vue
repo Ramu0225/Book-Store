@@ -1,7 +1,7 @@
 <template>
 	<div class="header">
 		<router-link to="/"><AppLogo /></router-link>
-		<CartIcon />
+		<routee-link to="/"><CartIcon /></routee-link>
 	</div>
 </template>
 
@@ -22,12 +22,16 @@ export default defineComponent({
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .header {
-	height: 70px;
-	width: 100%;
-	display: -webkit-flex;
+	height: 30px;
+	position: fixed;
+	top: 0;
+	width: 90%;
+	
 	display: flex;
-	-webkit-justify-content: space-between;
+	align-items: center;
 	justify-content: space-between;
-	margin-bottom: 25px;
+	background-color: rgb(18, 16, 16);
+	color:snow;
+	border-radius: 20px;
 }
 </style>
