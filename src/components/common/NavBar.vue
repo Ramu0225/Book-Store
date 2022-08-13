@@ -30,7 +30,7 @@ export default defineComponent({
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: rgb(18, 16, 16);
+	background-color: rgba(18, 16, 16, 0.5);
 	color: snow;
 	border-radius: 20px;
 }

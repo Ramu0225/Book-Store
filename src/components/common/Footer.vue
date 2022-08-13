@@ -9,8 +9,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .footer {
-	bottom: 1px;
-	background-color: rgb(11, 9, 9);
+	background-color: rgba(18, 16, 16, 0.5);
 	color: white;
 	font-size: 0.5rem;
 	align-content: center;

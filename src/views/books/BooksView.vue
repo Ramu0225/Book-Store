@@ -5,16 +5,27 @@ import { BookContract } from "./booksModel";
 import BookCard from "../../components/BookCard.vue";
 import { useBooksStore } from "../../store/books";
 import Footer from "../../components/common/Footer.vue";
+import { useCartStore } from "../../store/cart";
 
 const store = useBooksStore();
+const cart = useCartStore();
 
 const { books } = storeToRefs(store);
 onMounted(() => {
 	store.fetchBooks();
 });
-const addToCart = (book: BookContract) => {};
+const addToCart = (book: BookContract) => {
+	cart.addBookToCart(book);
+};
 const isProductSoldOut = (book: BookContract) => {
-	return !book.stock_quantity;
+	const bookInCart = cart.findBookById(book.id);
+	if (!bookInCart) {
+		return !book.stock_quantity;
+	}
+	return (
+		!book.stock_quantity ||
+		bookInCart.numberOfBooksOrdered === book.stock_quantity
+	);
 };
 const isLoading = computed(() => {
 	return store.loading && !store.books.length;
@@ -47,9 +58,22 @@ const isLoading = computed(() => {
 	width: 100%;
 	margin: 50px 0;
 	ul {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
+		display: grid;
+		@media (min-width: 320px) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+		@media (min-width: 481px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (min-width: 800px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media (min-width: 960px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		@media (min-width: 1205px) {
+			grid-template-columns: repeat(5, 1fr);
+		}
 	}
 	li {
 		flex-grow: 1;

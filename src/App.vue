@@ -13,6 +13,7 @@ export default defineComponent({
 });
 </script>
 <style lang="scss">
+$btn-color: #31b73a;
 body {
 	background-color: #eefefe;
 	#app {

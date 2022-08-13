@@ -8,8 +8,8 @@
 			<p>Stock: {{ props.book.stock_quantity }}</p>
 			<p>£{{ props.book.price }}</p>
 		</div>
-		<div class="bookCard-btn" v-if="props.isBookSoldOut">
-			<button type="button" disabled>Sold out</button>
+		<div  v-if="props.isBookSoldOut">
+			<button class="bookCard-btn" type="button" disabled>Sold Out</button>
 		</div>
 		<div v-else>
 			<button class="bookCard-btn" type="button" @click="props.addToCart(book)">
