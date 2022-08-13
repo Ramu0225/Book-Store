@@ -1,7 +1,7 @@
 <template>
 	<div class="header">
 		<router-link to="/"><AppLogo /></router-link>
-		<routee-link to="/"><CartIcon /></routee-link>
+		<router-link to="/cart"><CartIcon /></router-link>
 	</div>
 </template>
 
@@ -26,12 +26,12 @@ export default defineComponent({
 	position: fixed;
 	top: 0;
 	width: 90%;
-	
+
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	background-color: rgb(18, 16, 16);
-	color:snow;
+	color: snow;
 	border-radius: 20px;
 }
 </style>

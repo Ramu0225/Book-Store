@@ -1,9 +1,7 @@
 <template>
 	<NavBar />
-	
-	<Footer/>
+	<Footer />
 	<router-view />
-
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -12,18 +10,17 @@ import Footer from "./components/common/Footer.vue";
 export default defineComponent({
 	name: "App",
 	components: {
-    NavBar,
-    Footer
-},
+		NavBar,
+		Footer,
+	},
 });
 </script>
 <style lang="scss">
 #app {
 	width: 100%;
-	height:90vh;
-	
+	height: 90vh;
 }
-body{
-background-color: #EEFEFE;
+body {
+	background-color: #eefefe;
 }
 </style>
