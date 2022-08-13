@@ -8,7 +8,7 @@
 			<p>Stock: {{ props.book.stock_quantity }}</p>
 			<p>£{{ props.book.price }}</p>
 		</div>
-		<div  v-if="props.isBookSoldOut">
+		<div v-if="props.isBookSoldOut">
 			<button class="bookCard-btn" type="button" disabled>Sold Out</button>
 		</div>
 		<div v-else>
@@ -62,6 +62,9 @@ $card-color: rgb(125, 178, 180);
 		&:hover {
 			background-color: $card-color;
 			color: white;
+		}
+		&:disabled {
+			pointer-events: none;
 		}
 	}
 }
