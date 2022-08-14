@@ -2,7 +2,7 @@ import { BookContract } from "../books/booksModel";
 export interface BooksInCartContract extends BookContract {
 	numberOfBooksOrdered: number;
 }
-export const discountDate = "2022-8-12";
+export const discountDate = "2022-8-14";
 export const discountPercent = 20;
 export const discountApplicable = (discountDate: string) => {
 	console.log("in", discountDate);

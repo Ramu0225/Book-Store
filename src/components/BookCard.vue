@@ -20,7 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
 import { BookContract } from "@/views/books/booksModel";
 interface Props {
 	book: BookContract;

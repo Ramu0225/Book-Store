@@ -20,6 +20,7 @@ export const useBooksStore = defineStore("books", () => {
 			localStorage.setItem("books", JSON.stringify(books.value));
 			loading.value = false;
 		} catch (e) {
+			console.log(e);
 			loading.value = false;
 			error.value = true;
 		}

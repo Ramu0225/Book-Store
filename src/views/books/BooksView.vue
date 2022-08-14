@@ -1,13 +1,36 @@
+<template>
+	<div class="books-page">
+		<div v-if="isLoading">
+			<AppPreloader />
+		</div>
+		<div v-else-if="store.error">
+			<Error />
+		</div>
+		<div v-else>
+			<ul>
+				<li v-for="book in books" :key="book.id">
+					<BookCard
+						:book="book"
+						:addToCart="addToCart"
+						:isBookSoldOut="isProductSoldOut(book)"
+						:stockQuantity="stockQuantity(book)"
+					/>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<Footer />
+</template>
 <script setup lang="ts">
 import { onMounted, computed } from "vue";
-import { storeToRefs } from "pinia";
 import { BookContract } from "./booksModel";
 import BookCard from "../../components/BookCard.vue";
 import { useBooksStore } from "../../store/books";
 import Footer from "../../components/common/Footer.vue";
-import { useCartStore } from "../../store/cart";
 import AppPreloader from "../../components/common/AppPreloader.vue";
 import Error from "../../components/common/Error.vue";
+import { useCartStore } from "../../store/cart";
+import { storeToRefs } from "pinia";
 
 const store = useBooksStore();
 const cart = useCartStore();
@@ -41,29 +64,6 @@ const isLoading = computed(() => {
 	return store.loading && !store.books.length;
 });
 </script>
-<template>
-	<div class="books-page">
-		<div v-if="isLoading">
-			<AppPreloader />
-		</div>
-		<div v-else-if="store.error">
-			<Error />
-		</div>
-		<div v-else>
-			<ul>
-				<li v-for="book in books" :key="book.id">
-					<BookCard
-						:book="book"
-						:addToCart="addToCart"
-						:isBookSoldOut="isProductSoldOut(book)"
-						:stockQuantity="stockQuantity(book)"
-					/>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<Footer />
-</template>
 <style scoped lang="scss">
 .books-page {
 	width: 100%;

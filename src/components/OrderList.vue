@@ -44,6 +44,7 @@ const props = defineProps<Props>();
 $card-color: rgb(125, 178, 180);
 .order-list-item {
 	width: 300px;
+	z-index: -1;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;

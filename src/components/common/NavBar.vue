@@ -8,18 +8,9 @@
 	</div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import AppLogo from "./AppLogo.vue";
 import CartIcon from "./CartIcon.vue";
-
-export default defineComponent({
-	name: "NavBar",
-	components: {
-		AppLogo,
-		CartIcon,
-	},
-});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

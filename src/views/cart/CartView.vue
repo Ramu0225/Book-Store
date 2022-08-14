@@ -59,6 +59,7 @@ onMounted(() => {
 	margin: 30px auto 0;
 	padding: 10px;
 	width: 80%;
+	
 	.checkout-item {
 		background-color: rgb(125 178 180);
 		padding: 5px;

@@ -20,11 +20,11 @@ const sampleBooksInCart: Array<BooksInCartContract> = [
 	},
 ];
 
-it("Purchasing on other date", () => {
+it("should return total without any discount on other dates", () => {
 	const total = totalBill(sampleBooksInCart, "2022-8-22");
 	expect(total).toMatch("31.65");
 });
-it("Purchasing on 1st August(on discount date)", () => {
+it("should return total with 20% discount on 1st August(on discount date)", () => {
 	const total = totalBill(sampleBooksInCart, discountDate);
 	expect(total).toMatch("25.32");
 });
