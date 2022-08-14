@@ -15,6 +15,9 @@ module.exports = {
 	devServer: {
 		historyApiFallback: true,
 	},
+	stats: {
+		errorDetails: true,
+	},
 	cache: {
 		type: "filesystem",
 	},
