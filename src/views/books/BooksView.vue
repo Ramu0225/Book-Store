@@ -6,12 +6,15 @@ import BookCard from "../../components/BookCard.vue";
 import { useBooksStore } from "../../store/books";
 import Footer from "../../components/common/Footer.vue";
 import { useCartStore } from "../../store/cart";
+import AppPreloader from "../../components/common/AppPreloader.vue";
+import Error from "../../components/common/Error.vue";
 
 const store = useBooksStore();
 const cart = useCartStore();
 
 const { books } = storeToRefs(store);
 onMounted(() => {
+	cart.getCartFromLocalStorage();
 	store.fetchBooks();
 });
 const addToCart = (book: BookContract) => {
@@ -27,6 +30,13 @@ const isProductSoldOut = (book: BookContract) => {
 		bookInCart.numberOfBooksOrdered === book.stock_quantity
 	);
 };
+const stockQuantity = (book: BookContract) => {
+	const bookInCart = cart.findBookById(book.id);
+	if (!bookInCart) {
+		return book.stock_quantity;
+	}
+	return book.stock_quantity - bookInCart.numberOfBooksOrdered;
+};
 const isLoading = computed(() => {
 	return store.loading && !store.books.length;
 });
@@ -34,10 +44,10 @@ const isLoading = computed(() => {
 <template>
 	<div class="books-page">
 		<div v-if="isLoading">
-			<p>loader</p>
+			<AppPreloader />
 		</div>
-		<div v-if="store.error">
-			<p>please try again</p>
+		<div v-else-if="store.error">
+			<Error />
 		</div>
 		<div v-else>
 			<ul>
@@ -46,6 +56,7 @@ const isLoading = computed(() => {
 						:book="book"
 						:addToCart="addToCart"
 						:isBookSoldOut="isProductSoldOut(book)"
+						:stockQuantity="stockQuantity(book)"
 					/>
 				</li>
 			</ul>
@@ -57,11 +68,10 @@ const isLoading = computed(() => {
 .books-page {
 	width: 100%;
 	margin: 50px 0;
+	min-height: 100vh;
 	ul {
 		display: grid;
-		@media (min-width: 320px) {
-			grid-template-columns: repeat(1, 1fr);
-		}
+		grid-template-columns: repeat(1, 1fr);
 		@media (min-width: 481px) {
 			grid-template-columns: repeat(2, 1fr);
 		}
