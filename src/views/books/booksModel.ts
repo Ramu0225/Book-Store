@@ -1,4 +1,4 @@
-import { get } from "../../helper/fetch";
+import { get, baseUrl } from "../../helper/fetch";
 
 export interface BookContract {
 	title: string;
@@ -9,8 +9,7 @@ export interface BookContract {
 	discount_set?: string;
 }
 
-export async function fetchBooksFromServer() {
-	return get<Array<BookContract>>(
-		"https://frozen-wave-24832.herokuapp.com/items/"
-	);
+export function fetchBooksFromServer(timeout?: number, params?: string) {
+	const url = params ? `${baseUrl}/items?filter=${params}` : `${baseUrl}/items`;
+	return get<Array<BookContract>>(url, timeout);
 }

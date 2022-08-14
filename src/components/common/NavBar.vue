@@ -1,22 +1,16 @@
 <template>
 	<div class="header">
 		<router-link to="/"><AppLogo /></router-link>
-		<router-link to="/cart"><CartIcon /></router-link>
+		<div class="nav-items">
+			<router-link to="/">SHOP</router-link>
+			<router-link to="/cart"><CartIcon /></router-link>
+		</div>
 	</div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
 import AppLogo from "./AppLogo.vue";
 import CartIcon from "./CartIcon.vue";
-
-export default defineComponent({
-	name: "NavBar",
-	components: {
-		AppLogo,
-		CartIcon,
-	},
-});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -26,12 +20,27 @@ export default defineComponent({
 	position: fixed;
 	top: 0;
 	width: 90%;
-
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	background-color: rgba(18, 16, 16, 0.5);
 	color: snow;
 	border-radius: 20px;
+	z-index: 3;
+	.nav-items {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 12px;
+		width: 100px;
+	}
+	a {
+		color: greenyellow;
+		transition: all 0.5s;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
 }
 </style>

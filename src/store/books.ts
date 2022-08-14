@@ -15,12 +15,12 @@ export const useBooksStore = defineStore("books", () => {
 				loading.value = false;
 				return;
 			}
-			console.log("in");
 			const data = await fetchBooksFromServer();
 			books.value = data;
 			localStorage.setItem("books", JSON.stringify(books.value));
 			loading.value = false;
 		} catch (e) {
+			console.log(e);
 			loading.value = false;
 			error.value = true;
 		}
