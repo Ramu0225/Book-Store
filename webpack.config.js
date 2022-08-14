@@ -26,6 +26,9 @@ module.exports = {
 			{
 				test: /\.vue$/,
 				loader: "vue-loader",
+				options: {
+					postcss: [require("autoprefixer")()],
+				},
 				exclude: /node_modules/,
 			},
 			{
@@ -35,7 +38,7 @@ module.exports = {
 			},
 			{
 				test: /\.(css|scss|sass)$/,
-				use: ["style-loader", "css-loader", "sass-loader"],
+				use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
 				exclude: /node_modules/,
 			},
 			{
@@ -54,5 +57,9 @@ module.exports = {
 			filename: "index.html",
 		}),
 		new VueLoaderPlugin(),
+		new webpack.DefinePlugin({
+			__VUE_OPTIONS_API__: false,
+			__VUE_PROD_DEVTOOLS__: false,
+		}),
 	],
 };

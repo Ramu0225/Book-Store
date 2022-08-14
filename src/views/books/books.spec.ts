@@ -43,4 +43,5 @@ it("test mounting", () => {
 			plugins: [createTestingPinia()],
 		},
 	});
+	console.log(wrapper);
 });

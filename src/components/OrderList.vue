@@ -29,7 +29,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
 import { BooksInCartContract } from "../views/cart/cartModel";
 interface Props {
 	book: BooksInCartContract;
