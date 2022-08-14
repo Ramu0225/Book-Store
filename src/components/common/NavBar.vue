@@ -26,6 +26,7 @@ import CartIcon from "./CartIcon.vue";
 	background-color: rgba(18, 16, 16, 0.5);
 	color: snow;
 	border-radius: 20px;
+	z-index: 3;
 	.nav-items {
 		display: flex;
 		flex-wrap: wrap;
