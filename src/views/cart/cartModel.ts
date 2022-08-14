@@ -5,7 +5,6 @@ export interface BooksInCartContract extends BookContract {
 export const discountDate = "2022-8-1";
 export const discountPercent = 20;
 export const discountApplicable = (discountDate: string) => {
-	console.log("in", discountDate);
 	const today = new Date();
 	today.setHours(0, 0, 0, 0);
 	const date = new Date(discountDate);
