@@ -2,16 +2,21 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 const webpack = require("webpack");
+const isProduction = process.env.WEBPACK_MODE === "production";
 module.exports = {
+	mode: isProduction ? "production" : "development",
 	context: __dirname,
 	entry: "./src/main.ts",
 	output: {
 		path: path.resolve(__dirname, "dist"),
-		filename: "main.js",
+		filename: "[name].js",
 		publicPath: "/",
 	},
 	devServer: {
 		historyApiFallback: true,
+	},
+	cache: {
+		type: "filesystem",
 	},
 	module: {
 		rules: [
@@ -48,7 +53,7 @@ module.exports = {
 		],
 	},
 	resolve: {
-		extensions: ["*", ".ts", ".js", ".jsx", ".vue", ".json"],
+		extensions: ["*", ".ts", ".js", ".vue", ".json"],
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
@@ -62,4 +67,7 @@ module.exports = {
 			__VUE_PROD_DEVTOOLS__: false,
 		}),
 	],
+	optimization: {
+		minimize: true,
+	},
 };
