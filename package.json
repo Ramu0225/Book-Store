@@ -6,7 +6,8 @@
 	"scripts": {
 		"webpack-dev-server": "webpack-dev-server",
 		"dev": "webpack-dev-server --mode=development",
-		"prod": "webpack --mode=production"
+		"prod": "webpack --mode=production",
+		"test": "jest"
 	},
 	"keywords": [
 		"Book",
@@ -14,19 +15,34 @@
 		"frontend",
 		"e-commerce"
 	],
+	"jest": {
+		"transform": {
+			".(ts)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+		},
+		"testMatch": [
+			"<rootDir>/src/views/*/*.spec.ts"
+		],
+		"moduleFileExtensions": [
+			"ts",
+			"js"
+		]
+	},
 	"author": "Ramu Akarapu",
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/core": "^7.18.10",
 		"@babel/preset-env": "^7.18.10",
+		"@types/jest": "^28.1.6",
 		"babel-loader": "^8.2.5",
 		"css-loader": "^6.7.1",
 		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^5.5.0",
+		"jest": "^28.1.3",
 		"postcss-loader": "^7.0.1",
 		"sass": "^1.54.4",
 		"sass-loader": "^13.0.2",
 		"style-loader": "^3.3.1",
+		"ts-jest": "^28.0.7",
 		"typescript": "^4.7.4",
 		"vue-template-compiler": "^2.7.8",
 		"webpack": "^5.74.0",
