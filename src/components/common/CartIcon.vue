@@ -66,7 +66,7 @@ const bookCount = computed(() => {
 
 .cart-icon .item-count {
 	position: absolute;
-	font-size: 15px;
+	font-size: 10px;
 	font-weight: 700;
 	bottom: 5px;
 	right: 33px;
