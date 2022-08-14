@@ -17,7 +17,7 @@
 	],
 	"jest": {
 		"transform": {
-			".(ts)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+			".(ts)": "ts-jest"
 		},
 		"testMatch": [
 			"<rootDir>/src/views/*/*.spec.ts"
