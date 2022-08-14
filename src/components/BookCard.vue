@@ -38,7 +38,6 @@ $card-color: rgb(125, 178, 180);
 	height: 320px;
 	margin: 10px auto;
 	border-radius: 5px;
-
 	background-color: $card-color;
 	display: flex;
 	flex-direction: column;
@@ -46,7 +45,6 @@ $card-color: rgb(125, 178, 180);
 	justify-content: center;
 	transition: all 2s;
 	color: white;
-	-webkit-animation: fade 1s;
 	animation: fade 1s;
 	animation-duration: 1s;
 	.bookCard-items {
@@ -68,14 +66,6 @@ $card-color: rgb(125, 178, 180);
 		}
 		&:disabled {
 			pointer-events: none;
-		}
-	}
-	@-webkit-keyframes fade {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
 		}
 	}
 
