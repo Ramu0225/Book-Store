@@ -58,6 +58,10 @@ const bookCount = computed(() => {
 	width: 24px;
 	height: 24px;
 	margin-right: 25px;
+	transition: all 0.5s;
+	&:hover {
+		transform: scale(1.1);
+	}
 }
 
 .cart-icon .item-count {
@@ -67,5 +71,9 @@ const bookCount = computed(() => {
 	bottom: 5px;
 	right: 33px;
 	color: black;
+	transition: all 0.5s;
+	&:hover {
+		transform: scale(1.1);
+	}
 }
 </style>
