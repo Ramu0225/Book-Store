@@ -5,7 +5,7 @@
 			<div class="item-title">
 				<p>{{ book.title }}</p>
 				<div class="quantity">
-					<span>quantity</span>
+					<span class="padding">Qty</span>
 					<div class="arrow" @click="props.removeBookFromCart(book)">❮</div>
 					<p class="value">{{ book.numberOfBooksOrdered }}</p>
 					<div class="arrow" @click="props.addToCart(book)">❯</div>
@@ -52,6 +52,9 @@ $card-color: rgb(125, 178, 180);
 	}
 	img {
 		border-radius: 5px;
+	}
+	.padding {
+		padding-right: 10px;
 	}
 	.price {
 		display: flex;
