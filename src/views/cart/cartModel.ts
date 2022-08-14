@@ -1,4 +1,4 @@
-import { BookContract } from "../books/booksModel";
+import { BookContract, fetchBookFromServer } from "../books/booksModel";
 export interface BooksInCartContract extends BookContract {
 	numberOfBooksOrdered: number;
 }

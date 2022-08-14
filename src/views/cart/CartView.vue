@@ -10,7 +10,6 @@ import {
 import { computed, onMounted } from "vue";
 import OrderList from "../../components/OrderList.vue";
 const cart = useCartStore();
-
 const { booksInCart } = storeToRefs(cart);
 const isDiscountApplicable = discountApplicable(discountDate);
 const total = computed(() => {
@@ -59,7 +58,7 @@ onMounted(() => {
 	margin: 30px auto 0;
 	padding: 10px;
 	width: 80%;
-	
+
 	.checkout-item {
 		background-color: rgb(125 178 180);
 		padding: 5px;
