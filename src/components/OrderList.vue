@@ -1,5 +1,5 @@
 <template>
-	<div class="orderList-item">
+	<div class="order-list-item">
 		<div class="image-container">
 			<img v-bind:src="book.image_url" alt="image" />
 			<div class="item-title">
@@ -40,14 +40,16 @@ interface Props {
 const props = defineProps<Props>();
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 $card-color: rgb(125, 178, 180);
-.orderList-item {
-	width: 400px;
+.order-list-item {
+	width: 300px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	@media (min-width: 481px) {
+		width: 400px;
+	}
 	img {
 		border-radius: 5px;
 	}
@@ -91,6 +93,7 @@ $card-color: rgb(125, 178, 180);
 			position: absolute;
 			top: 5px;
 			right: 5px;
+			transition: all 0.5s;
 			&:hover {
 				background-color: black;
 				color: snow;
