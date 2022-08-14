@@ -9,13 +9,6 @@ describe("fetchBooks", () => {
 		it("should return books list", async () => {
 			const result = await fetchBooksFromServer();
 			expect(result.length).toBeGreaterThan(1);
-			// const wrapper = mount(BooksView, {
-			// 	global: {
-			// 		plugins: [createTestingPinia()],
-			// 	},
-			// });
-			// //console.log(wrapper);
-			// expect(wrapper.classes()).toContain("bookCard");
 		});
 	});
 
@@ -44,12 +37,10 @@ describe("fetchBooks", () => {
 	});
 });
 
-// it("test mounting", () => {
-// 	jest.mock("./booksModel");
-// 	fetchBooksFromServer.mockRejectedValue(new Error("broken"));
-// 	const wrapper = shallowMount(BooksView, {
-// 		global: {
-// 			plugins: [createTestingPinia()],
-// 		},
-// 	});
-// });
+it("test mounting", () => {
+	const wrapper = shallowMount(BooksView, {
+		global: {
+			plugins: [createTestingPinia()],
+		},
+	});
+});

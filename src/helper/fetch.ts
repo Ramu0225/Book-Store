@@ -6,7 +6,6 @@ export async function get<T>(url: string, timeout: number = 8000): Promise<T> {
 		const response = await axios.get(url, { timeout });
 		return response.data;
 	} catch (error) {
-		console.log(error);
 		return Promise.reject(error);
 	}
 }

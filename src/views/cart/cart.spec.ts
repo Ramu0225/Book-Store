@@ -1,4 +1,9 @@
-import { BooksInCartContract, discountDate, totalBill } from "./cartModel";
+import {
+	BooksInCartContract,
+	discountDate,
+	totalBill,
+	discountApplicable,
+} from "./cartModel";
 const sampleBooksInCart: Array<BooksInCartContract> = [
 	{
 		id: 1,
@@ -20,11 +25,15 @@ const sampleBooksInCart: Array<BooksInCartContract> = [
 	},
 ];
 
-it("should return total without any discount on other dates", () => {
-	const total = totalBill(sampleBooksInCart, "2022-8-22");
-	expect(total).toMatch("31.65");
-});
-it("should return total with 20% discount on 1st August(on discount date)", () => {
-	const total = totalBill(sampleBooksInCart, discountDate);
-	expect(total).toMatch("25.32");
+describe("when total bill on discount date and other dates", () => {
+	it("should return total without any discount on other dates", () => {
+		const total = totalBill(sampleBooksInCart, "2022-8-22");
+		expect(total).toBe("61.65");
+	});
+	it("should return total with 20% discount on 1st August(on discount date)", () => {
+		const total = totalBill(sampleBooksInCart, discountDate);
+		if (discountApplicable(discountDate)) {
+			expect(total).toBe("49.32");
+		}
+	});
 });
