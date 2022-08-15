@@ -1,8 +1,5 @@
-import { fetchBooksFromServer, BookContract } from "./booksModel";
-import { shallowMount, mount } from "@vue/test-utils";
-import BooksView from "./BooksView.vue";
-import { createTestingPinia } from "@pinia/testing";
-import axios, { AxiosError } from "axios";
+import { fetchBooksFromServer } from "./booksModel";
+import { AxiosError } from "axios";
 
 describe("fetchBooks", () => {
 	describe("when API call is successful", () => {
@@ -35,13 +32,4 @@ describe("fetchBooks", () => {
 			}
 		});
 	});
-});
-
-it("test mounting", () => {
-	const wrapper = shallowMount(BooksView, {
-		global: {
-			plugins: [createTestingPinia()],
-		},
-	});
-	console.log(wrapper);
 });

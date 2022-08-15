@@ -9,7 +9,7 @@ export interface BookContract {
 	discount_set?: string;
 }
 
-export function fetchBooksFromServer(timeout: number = 8000, params?: string) {
+export function fetchBooksFromServer(timeout = 8000, params?: string) {
 	const url = params ? `${baseUrl}/items?filter=${params}` : `${baseUrl}/items`;
 	return get<Array<BookContract>>(url, timeout);
 }

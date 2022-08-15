@@ -9,7 +9,7 @@
 			<p>£{{ props.book.price }}</p>
 		</div>
 		<div v-if="props.isBookSoldOut">
-			<button class="bookCard-btn" type="button" disabled>Sold Out</button>
+			<button class="bookCard-btn" type="button" disabled>Out of stock</button>
 		</div>
 		<div v-else>
 			<button class="bookCard-btn" type="button" @click="props.addToCart(book)">
@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import { BookContract } from "@/views/books/booksModel";
+import { defineProps } from "vue";
 interface Props {
 	book: BookContract;
 	isBookSoldOut: boolean;
