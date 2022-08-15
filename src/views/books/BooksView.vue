@@ -26,11 +26,11 @@ import { onMounted, computed } from "vue";
 import { BookContract } from "./booksModel";
 import BookCard from "../../components/BookCard.vue";
 import { useBooksStore } from "../../store/books";
-import Footer from "../../components/common/Footer.vue";
 import AppPreloader from "../../components/common/AppPreloader.vue";
-import Error from "../../components/common/Error.vue";
+import Error from "../../components/common/AppError.vue";
 import { useCartStore } from "../../store/cart";
 import { storeToRefs } from "pinia";
+import Footer from "../../components/common/AppFooter.vue";
 
 const store = useBooksStore();
 const cart = useCartStore();

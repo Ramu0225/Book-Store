@@ -1,5 +1,8 @@
 # Book-Store
 
+The application link
+[bookstore14822.web.app/#/](https://bookstore14822.web.app/#/)
+
 ## Introduction:
 
 Web Application is designed with VueJs framework, single page application consist of list of products in one page and ordered list on other page.
@@ -24,9 +27,17 @@ npm run test
 
 ```
 
+## Deploy:
+
+```
+npm run build
+firbase deploy
+
+```
+
 ## Design:
 
-Web Application is responsive and user friendly, designed with VueJs framework, vue3, used composition API and Pinia for state management and tested using Jest.
+Web Application is responsive and user friendly, designed with VueJs framework, vue3, used composition API, Pinia for state management, tested using Jest and deployed using Firebase.
 
 All the components which can be used in total app(ex: loader, error dialog..) are placed in components common folder and remaining components are placed in component folder level. All the components here are dumb components.
 

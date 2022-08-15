@@ -30,6 +30,7 @@
 
 <script setup lang="ts">
 import { BooksInCartContract } from "../views/cart/cartModel";
+import { defineProps } from "vue";
 interface Props {
 	book: BooksInCartContract;
 	addToCart: (book: BooksInCartContract) => void;
